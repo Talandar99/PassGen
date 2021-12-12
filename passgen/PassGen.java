@@ -86,7 +86,7 @@ class PassGen {
     }
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("PassGen"); //Creating new window 
+        JFrame frame = new JFrame("PassGen 1.0"); //Creating new window 
         frame.setLocation(200,200); //lokalizacja okna 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// press [X] to close
         frame.setSize(new Dimension(380, 170)); // window dimnesions
