@@ -2,6 +2,9 @@ package passgen;
 import java.awt.*;
 import java.awt.event.*;  
 import javax.swing.*; //swing graphical lib 
+import java.awt.datatransfer.StringSelection;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
 
 class PassGen { 
     //pass gen 
@@ -101,14 +104,28 @@ class PassGen {
         textField.setSize(320,20);
         textField.setBounds(20, 40, 320, 30);
 
-        //button        
+        //button gen    
         JButton button_gen = new JButton("Generate");//add a button
         button_gen.setBounds(20, 80, 100, 30);
+        
+        //button copy   
+        JButton button_copy = new JButton("Copy");//add a button
+        button_copy.setBounds(239, 80, 100, 30);
 
-        //pressing button
+        //pressing button gen
         button_gen.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){ 
-                textField.setText(password_gen()+password_gen());
+            	String textt =password_gen()+password_gen();
+                textField.setText(textt);
+            }  
+        });  
+        
+        //pressing button copy
+        button_copy.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){ 
+            	StringSelection stringSelection = new StringSelection(textField.toString());
+            	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+            	clipboard.setContents(stringSelection, null);
             }  
         });  
 
@@ -116,6 +133,7 @@ class PassGen {
         frame.add(label_password);
         frame.add(textField);
         frame.add(button_gen);
+        frame.add(button_copy);
 
 
         frame.setLayout(null);
