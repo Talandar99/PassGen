@@ -72,24 +72,26 @@ class PassGen {
             }
         } 
         for(int i=0;i<random_password.length();i++){
-            random_number= Math.random();
-            random_number=random_number*100;
-            long Asciint = Math.round(random_number);
-            if(Asciint%6==0){
+            if(fpass[i]!=0){
                 random_number= Math.random();
-                random_number=random_number*10;
-                Asciint= Math.round(random_number);
-                final_password=final_password+Asciint;   
-            }else{
-                final_password=final_password+fpass[i];
+                random_number=random_number*100;
+                long Asciint = Math.round(random_number);
+                if(Asciint%6==0){
+                    random_number= Math.random();
+                    random_number=random_number*10;
+                    Asciint= Math.round(random_number);
+                    final_password=final_password+Asciint;   
+                }else{
+                    final_password=final_password+fpass[i];
             }
+        }
 
         } 
         return final_password;
     }
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("PassGen 1.0"); //Creating new window 
+        JFrame frame = new JFrame("PassGen 1.1"); //Creating new window 
         frame.setLocation(200,200); //lokalizacja okna 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// press [X] to close
         frame.setSize(new Dimension(380, 170)); // window dimnesions
@@ -100,7 +102,7 @@ class PassGen {
         label_password.setBounds(20, 10, 200, 30);
 
         //text field
-        JTextField textField = new JTextField("press a button to generate");
+        JTextField textField = new JTextField("press a button [Generate] to generate password");
         textField.setSize(320,20);
         textField.setBounds(20, 40, 320, 30);
 
@@ -123,7 +125,7 @@ class PassGen {
         //pressing button copy
         button_copy.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){ 
-            	StringSelection stringSelection = new StringSelection(textField.toString());
+            	StringSelection stringSelection = new StringSelection(textField.getText());
             	Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             	clipboard.setContents(stringSelection, null);
             }  
@@ -134,7 +136,6 @@ class PassGen {
         frame.add(textField);
         frame.add(button_gen);
         frame.add(button_copy);
-
 
         frame.setLayout(null);
         //frame.pack(); //autosize
