@@ -1,5 +1,5 @@
 # Java Password generator
 
-### libs
+### How to run
+- Download .jar file and run
 
-- Swing
