@@ -1,4 +1,4 @@
-package passgen;
+package desktop.src;
 
 import java.awt.*;
 import java.awt.event.*;  
