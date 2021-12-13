@@ -4,7 +4,7 @@
 - Download PassGen.jar file and run
 
 ### Requirements
-- at least Java 11
+- at least Java 8
 
 ### You can check password strength on:
 https://www.passwordmonster.com/
