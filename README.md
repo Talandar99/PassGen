@@ -1,7 +1,8 @@
-# Java Password generator
+# Java Password Generator
 
 ### How to run
-- Download .jar file and run
+- Download PassGen.jar file and run
+- you need to have at least Java 11 to run
 
 ### You can check password strength on:
 https://www.passwordmonster.com/
