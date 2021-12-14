@@ -71,37 +71,30 @@ class PassGen {
         return final_password;
     }
     public static void main(String[] args) {
-
         JFrame frame = new JFrame("PassGen 1.4"); //Creating new window 
-        frame.setLocation(200,200); //lokalizacja okna 
+        frame.setLocation(200,200); //window location
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// press [X] to close
         frame.setSize(new Dimension(380, 170)); // window dimnesions
-
         //label
         JLabel label_password = new JLabel ("Password:");
         label_password.setSize(100,10);
         label_password.setBounds(20, 10, 200, 30);
-
         //text field
         JTextField textField = new JTextField(" Press [Generate] button to generate password");
         textField.setSize(320,20);
         textField.setBounds(20, 40, 320, 30);
-
         //button gen    
         JButton button_gen = new JButton("Generate");//add a button
-        button_gen.setBounds(20, 80, 100, 30);
-        
+        button_gen.setBounds(20, 80, 100, 30);  
         //button copy   
         JButton button_copy = new JButton("Copy");//add a button
         button_copy.setBounds(239, 80, 100, 30);
-
         //pressing button gen
         button_gen.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){ 
                 textField.setText(password_gen()+password_gen());
             }  
-        });  
-        
+        });    
         //pressing button copy
         button_copy.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){ 
@@ -110,19 +103,16 @@ class PassGen {
             	clipboard.setContents(stringSelection, null);
             }  
         });  
-
         //adding things to window
         frame.add(label_password);
         frame.add(textField);
         frame.add(button_gen);
         frame.add(button_copy);
-
         //color settings
         //frame.getJMenuBar().setBackground(Color.decode("0xb9bffb"));
         frame.getContentPane().setBackground(Color.decode("0xdae0ea"));
         //button_copy.setBackground(Color.decode("0x20d6c7"));
         //button_gen.setBackground(Color.decode("0x20d6c7"));
-
         //window settings
         frame.setLayout(null);
         //frame.pack(); //autosize
