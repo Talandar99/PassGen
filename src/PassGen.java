@@ -3,9 +3,7 @@ package src;
 import java.awt.*;
 import java.awt.event.*;  
 import java.awt.datatransfer.*;
-
 import javax.swing.*; //swing graphical lib 
-
 
 class PassGen { 
     //pass generation 
@@ -118,12 +116,5 @@ class PassGen {
         //frame.pack(); //autosize
         frame.setVisible(true); // window visibility
         frame.setAlwaysOnTop(true);
-
-
-
-
-
-
     }
-
 }
