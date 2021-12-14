@@ -10,23 +10,16 @@ import javax.swing.*; //swing graphical lib
 class PassGen { 
     //pass generation 
     public static String password_gen(){
-        double random_number= Math.random();
-        long random_number_long = Math.round(random_number*random_number*Math.pow(10,24));
-        String random_password= String.valueOf(random_number_long);
-        //Pass length checker
-        while(random_password.length()<13){
-            random_number= Math.random();
-            random_number_long = Math.round(random_number*random_number*Math.pow(10,24));
-            random_password= String.valueOf(random_number_long);   
-        }
         //key variables
-        char[] chars =new char[random_password.length()];
-        char[] big_letters =new char[random_password.length()];
-        char[] small_letters =new char[random_password.length()];
-        char[] fpass= new char[random_password.length()];
+        int random_password_length= 20;
         String final_password="";
+        double random_number= Math.random();
+        char[] chars =new char[random_password_length];
+        char[] big_letters =new char[random_password_length];
+        char[] small_letters =new char[random_password_length];
+        char[] fpass= new char[random_password_length];
         //chars
-        for(int i=0;i<random_password.length();i++){
+        for(int i=0;i<random_password_length;i++){
             random_number= Math.random();
             random_number=random_number*10;
             long Asciint = Math.round(random_number);
@@ -36,7 +29,7 @@ class PassGen {
             }     
         }
         //Big letters
-        for(int i=0;i<random_password.length();i++){
+        for(int i=0;i<random_password_length;i++){
             random_number= Math.random();
             random_number=random_number*50;
             long Asciint = Math.round(random_number);
@@ -46,7 +39,7 @@ class PassGen {
             }
         }
         //small_letters  
-        for(int i=0;i<random_password.length();i++){
+        for(int i=0;i<random_password_length;i++){
             random_number= Math.random();
             random_number=random_number*50;
             long Asciint = Math.round(random_number);
@@ -54,9 +47,9 @@ class PassGen {
                 char ch = (char) (97+Asciint);
                 small_letters[i]=ch;
             }     
-        }
+        }  
         //creating password  
-        for(int i=0;i<random_password.length();i++){
+        for(int i=0;i<random_password_length;i++){
             if(chars[i]!=0){
                 fpass[i]=chars[i];
             }
@@ -79,7 +72,7 @@ class PassGen {
     }
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("PassGen 1.2"); //Creating new window 
+        JFrame frame = new JFrame("PassGen 1.4"); //Creating new window 
         frame.setLocation(200,200); //lokalizacja okna 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// press [X] to close
         frame.setSize(new Dimension(380, 170)); // window dimnesions
